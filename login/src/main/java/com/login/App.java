@@ -12,7 +12,9 @@ public class App {
 	 public static void main(String[] args) throws InterruptedException {
 		 System.setProperty("webdriver.chrome.driver","../chromedriver.exe");
 		 ChromeOptions options = new ChromeOptions();
-		 options.addArguments("--headless=new");
+		 options.addArguments(new String[] { "--headless" });
+		options.addArguments(new String[] { "--no-sandbox" });
+		options.addArguments(new String[] { "--disable-dev-shm-usage" });
 		  WebDriver driver=new ChromeDriver(options);
 		  driver.get("http://www.facebook.com");
 		  driver.findElement(By.id("email")).sendKeys("yourUsername");
